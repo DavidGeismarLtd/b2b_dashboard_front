@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../dist/output.css">
+    <script src="../dist/bundle.js"></script>
+    <!-- <script>
+        // shows the #modal element
+        toggleModal('modal');
+
+        // hides the #modal element
+        toggleModal('modal', false);
+
+        // also shows the #modal element
+        toggleModal('modal', true);
+    </script> -->
+
+
+</head>
+<body class="pt-10 pb-10">
+  <div data-controller="modal" data-modal-allow-background-close="false">
+  <a href="#" data-action="click->modal#open" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded">
+    <span>Open Modal</span>
+  </a>
+
+  <!-- Modal Container -->
+  <div data-modal-target="container" data-action="click->modal#closeBackground keyup@window->modal#closeWithKeyboard" class="hidden animated fadeIn fixed inset-0 overflow-y-auto flex items-center justify-center" style="z-index: 9999;">
+    <!-- Modal Inner Container -->
+    <div class="max-h-screen w-full max-w-lg relative">
+      <!-- Modal Card -->
+      <div class="m-1 bg-white rounded shadow">
+        <div class="p-8">
+          <h2 class="text-xl mb-4">Large Modal Content</h2>
+          <p class="mb-4">This is an example modal dialog box.</p>
+
+          <div class="flex justify-end items-center flex-wrap mt-6">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-action="click->modal#close">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="container">
+
+        <section class="modal-data pb-10">
+            <div class="mx-auto lg\:px-8 sm:px-6 lg:px-8 gap-1">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Modals</h3>
+                <div class="mt-5 sm:flex gap-1">
+                    <button data-modal-toggle="addCreadits" class="bg-white font-medium text-sm text-indigo-600 hover:text-indigo-500 shadow-sm border rounded-md py-2 px-3 block hover:text-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium">Add Creadits</button>
+                    <button data-modal-toggle="buyCreadits" class="bg-white font-medium text-sm text-indigo-600 hover:text-indigo-500 shadow-sm border rounded-md py-2 px-3 block hover:text-blue-500 focus:outline-none">Buy Creadits</button>
+                    <button data-modal-toggle="addEmployee" class="bg-white font-medium text-sm text-indigo-600 hover:text-indigo-500 shadow-sm border rounded-md py-2 px-3 block hover:text-blue-500 focus:outline-none">Add employee</button>
+                    <button data-modal-toggle="csvList" class="bg-white font-medium text-sm text-indigo-600 hover:text-indigo-500 shadow-sm border rounded-md py-2 px-3 block hover:text-blue-500 focus:outline-none">CSV List</button>
+                    <button data-modal-toggle="confirmation" class="bg-white font-medium text-sm text-indigo-600 hover:text-indigo-500 shadow-sm border rounded-md py-2 px-3 block hover:text-blue-500 focus:outline-none">Confirmation</button>
+                    <button data-modal-toggle="noCredits" class="bg-white font-medium text-sm text-indigo-600 hover:text-indigo-500 shadow-sm border rounded-md py-2 px-3 block hover:text-blue-500 focus:outline-none">No Credits</button>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="profile-card">
+            <div class="mx-auto lg\:px-8 sm:px-6 lg:px-8 gap-1">
+                <div class="rounded-lg bg-white overflow-hidden shadow">
+                    <h2 class="sr-only" id="profile-overview-title">Profile Overview</h2>
+                    <div class="bg-white p-6">
+                    <div class="sm:flex sm:items-center sm:justify-between">
+                        <div class="sm:flex sm:space-x-5 text-left">
+                            <div class="flex-shrink-0">
+                                <img class="mx-auto h-20 w-20 rounded-full" src="img/avatar.png" alt="">
+                            </div>
+                            <div class="mt-4 sm:mt-0 sm:pt-1 sm:\text-left">
+                                <p class="text-sm font-medium text-gray-600">Welcome back,</p>
+                                <h3 class="text-xl font-bold text-gray-900 sm:text-2xl">Rebecca Nicholas</h3>
+                                <p class="text-sm font-medium text-gray-600">Product Designer</p>
+                            </div>
+                        </div>
+                        <div class="mt-5 flex justify-center sm:mt-0">
+                            <a href="#" class="flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"> View profile </a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="border-t border-gray-200 bg-gray-50 grid grid-cols-1 divide-y divide-gray-200 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
+                        <div class="px-6 py-5 text-sm font-medium text-center">
+                            <span class="text-gray">Employee at</span>
+                            <span class="text-black font-semibold">First Parnet</span>
+                        </div>
+
+                        <div class="px-6 py-5 text-sm font-medium text-center">
+                            <span class="text-gray-900">partneradmin@premium.com</span>
+                        </div>
+
+                        <div class="px-6 py-5 text-sm font-medium text-center">
+                            <span class="text-gray-900">Registered on</span>
+                            <span class="text-gray-600 font-semibold">August 25, 2020</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="report-card mt-10">
+            <div>
+              <h3 class="text-lg leading-6 font-medium text-gray-900">Last 30 days</h3>
+              <dl class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <div class="relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden">
+                <dt>
+                  <div class="absolute bg-indigo-500 rounded-md p-3">
+                    <!-- Heroicon name: outline/users -->
+                    <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path d="M17 9V7C17 5.89543 16.1046 5 15 5H5C3.89543 5 3 5.89543 3 7V13C3 14.1046 3.89543 15 5 15H7M9 19H19C20.1046 19 21 18.1046 21 17V11C21 9.89543 20.1046 9 19 9H9C7.89543 9 7 9.89543 7 11V17C7 18.1046 7.89543 19 9 19ZM16 14C16 15.1046 15.1046 16 14 16C12.8954 16 12 15.1046 12 14C12 12.8954 12.8954 12 14 12C15.1046 12 16 12.8954 16 14Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <p class="ml-16 text-sm font-medium text-gray-500 truncate">Credits left</p>
+                </dt>
+                <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
+                  <p class="text-2xl font-semibold text-gray-900">50</p>
+                  <p class="ml-2 flex items-baseline text-sm font-semibold text-gray-600">/ 520 (total used)</p>
+                  <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
+                    <div class="text-sm">
+                      <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Add credits</a>
+                    </div>
+                  </div>
+                </dd>
+                </div>
+
+                <div class="relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden">
+                    <dt>
+                    <div class="absolute bg-indigo-500 rounded-md p-3">
+                        <!-- Heroicon name: outline/mail-open -->
+                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path d="M12 4.35418C12.7329 3.52375 13.8053 3 15 3C17.2091 3 19 4.79086 19 7C19 9.20914 17.2091 11 15 11C13.8053 11 12.7329 10.4762 12 9.64582M15 21H3V20C3 16.6863 5.68629 14 9 14C12.3137 14 15 16.6863 15 20V21ZM15 21H21V20C21 16.6863 18.3137 14 15 14C13.9071 14 12.8825 14.2922 12 14.8027M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <p class="ml-16 text-sm font-medium text-gray-500 truncate">Total Employees</p>
+                    </dt>
+                    <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
+                    <p class="text-2xl font-semibold text-gray-900">150</p>
+                    <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
+                        <div class="text-sm">
+                        <a href="#" class="px-1 font-medium text-indigo-600 hover:text-indigo-500">Add Employee</a>
+                        <a href="#" class="px-1 font-medium text-indigo-600 hover:text-indigo-500">Upload csv list</a>
+                        </div>
+                    </div>
+                    </dd>
+                </div>
+
+                <div class="relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden">
+                    <dt>
+                    <div class="absolute bg-gray-50 rounded-md p-3">
+                        <!-- Heroicon name: outline/cursor-click -->
+                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path d="M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <p class="ml-16 text-sm font-medium text-gray-500 truncate">New training requests</p>
+                    </dt>
+                    <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
+                    <p class="text-2xl font-semibold text-gray-900">10</p>
+                    <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
+                        <div class="text-sm">
+                        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> View all</a>
+                        </div>
+                    </div>
+                    </dd>
+                </div>
+                </dl>
+            </div>
+        </section>
+        <section class="dash-data mt-10">
+            <div class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
+                <div>
+                    <div class="block">
+                        <div class="border-b border-gray-200 pt-5">
+                            <nav class="relative flex" aria-label="Tabs" id="myTab" data-tabs-toggle="#tabContents" role="tablist">
+                                <a href="#1" class="active border-transparent text-gray-500 min-w-0 flex-1 overflow-hidden hover:bg-gray-50 focus:z-10 py-4 text-center border-b-2 font-medium text-sm" id="sessions-tab" data-tabs-target="#sessions" role="tab" aria-controls="sessions" aria-selected="true"> Parcours & Sessions </a>
+                                <a href="#1" class="border-transparent text-gray-500 hover:text-gray-700 min-w-0 flex-1 overflow-hidden py-4 focus:z-10 1 text-center border-b-2 font-medium text-sm" id="employees-tab" data-tabs-target="#employees" role="tab" aria-controls="employees" aria-selected="false"> Employees </a>
+                                <a href="#1" class="border-transparent text-gray-500 hover:text-gray-700 min-w-0 flex-1 overflow-hidden py-4 focus:z-10 1 text-center border-b-2 font-medium text-sm" id="training-tab" data-tabs-target="#training" role="tab" aria-controls="training" aria-selected="false"> Training requests </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col mx-auto lg\:px-8 sm:px-6 lg:px-8 gap-1" id="tabContents">
+
+                    <div id="sessions" role="tabpanel" aria-labelledby="sessions-tab" class="w-full p-6">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Parcours & sessions</h3>
+                        <hr class="border-b border-gray-200 block w-full mt-5">
+                        <div class="block my-4">
+                            <div class="block text-center p-6">
+                                <h2 class="mt-2 text-dark-900 font-bold text-2xl">Vous n’avez pas encore acces au catalogue</h2>
+                                <p class="mt-1 text-sm text-gray-500 pb-6">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </p>
+                                <button type="button" data-action="modal#open" class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    See Catalogue
+                                </button>
+                                <div class="block text-center p-6">
+                                    <img class="inline-block mx-auto" src="../src/img/empty_visual.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="employees" role="tabpanel" aria-labelledby="employees-tab" class="w-full p-6 hidden">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900"> Employees </h3>
+                        <hr class="border-b border-gray-200 block w-full mt-5">
+                        <div class="w-full">
+                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">NAME</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">TITLE</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">NEW REQUESTS</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CREDITS</th>
+                                        <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Edit</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200 overflow-y-auto h-48 max-h-full">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">Emily Selman</div>
+                                                <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                            </div>
+                                        </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <div class="text-sm text-gray-500">Optimization</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Active </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                            <div class="inline-flex items-baseline px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">01</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Register</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1505840717430-882ce147ef2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                            </div>
+                                        </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <div class="text-sm text-gray-500">Optimization</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Active </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                            <div class="inline-flex items-baseline px-2 text-sm">-</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Register</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                            </div>
+                                        </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <div class="text-sm text-gray-500">Optimization</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Active </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                            <div class="inline-flex items-baseline px-2 text-sm">-</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Register</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                            </div>
+                                        </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <div class="text-sm text-gray-500">Optimization</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Active </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                            <div class="inline-flex items-baseline px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">01</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Register</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                            </div>
+                                        </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <div class="text-sm text-gray-500">Optimization</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Active </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                            <div class="inline-flex items-baseline px-2 text-sm">-</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Register</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                            </div>
+                                        </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <div class="text-sm text-gray-500">Optimization</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Active </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                            <div class="inline-flex items-baseline px-2 text-sm">-</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Register</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                            </div>
+                                        </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <div class="text-sm text-gray-500">Optimization</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Active </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                            <div class="inline-flex items-baseline px-2 text-sm">-</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Register</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                            </div>
+                                        </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <div class="text-sm text-gray-500">Optimization</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Active </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                            <div class="inline-flex items-baseline px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">01</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Register</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                            </div>
+                                        </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <div class="text-sm text-gray-500">Optimization</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Active </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                            <div class="inline-flex items-baseline px-2 text-sm">-</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Register</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                            </div>
+                                        </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <div class="text-sm text-gray-500">Optimization</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Active </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                            <div class="inline-flex items-baseline px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">01</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Register</a>
+                                        </td>
+                                    </tr>
+
+                                    <!-- More people... -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="training" role="tabpanel" aria-labelledby="training-tab" class="w-full p-6 hidden">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900"> Training requests </h3>
+                        <hr class="border-b border-gray-200 block w-full mt-5">
+                        <div class="w-full">
+                            <div class="flex flex-col">
+                                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                        <table class="min-w-full divide-y divide-gray-200">
+                                            <thead class="bg-gray-50">
+                                            <tr>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Employee</th>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Parcours</th>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">REquested</th>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><span class="sr-only">Status</span></th>
+                                                <th scope="col" class="relative px-6 py-3"><span class="sr-only">Edit</span></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="flex-shrink-0 h-10 w-10">
+                                                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                                        </div>
+                                                        <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                        <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                                        </div>
+                                                    </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <div class="min-w-0 flex-1 flex items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <img class="h-12 w-12 rounded group-hover:opacity-75" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+                                                            </div>
+                                                            <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-1">
+                                                            <div>
+                                                                <p class="text-sm font-medium text-purple-600 truncate">Emily Selman</p>
+                                                                <p class="mt-2 flex items-center text-sm text-gray-500">
+                                                                    <svg class="flex-shrink-0 -mt-0.5 mr-2 h-6 w-6 text-blue-gray-200" x-description="Heroicon name: outline/cash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                                                    </svg>
+                                                                <span class="truncate">40 credits</span>
+                                                                </p>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">23/02/2022</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-indigo-500">Admin</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                        <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Accept</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="flex-shrink-0 h-10 w-10">
+                                                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                                        </div>
+                                                        <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                        <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                                        </div>
+                                                    </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <div class="min-w-0 flex-1 flex items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <img class="h-12 w-12 rounded group-hover:opacity-75" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+                                                            </div>
+                                                            <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-1">
+                                                            <div>
+                                                                <p class="text-sm font-medium text-purple-600 truncate">Emily Selman</p>
+                                                                <p class="mt-2 flex items-center text-sm text-gray-500">
+                                                                    <svg class="flex-shrink-0 -mt-0.5 mr-2 h-6 w-6 text-blue-gray-200" x-description="Heroicon name: outline/cash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                                                    </svg>
+                                                                <span class="truncate">40 credits</span>
+                                                                </p>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">23/02/2022</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-indigo-500">Admin</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                        <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Accept</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="flex-shrink-0 h-10 w-10">
+                                                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                                        </div>
+                                                        <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                        <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                                        </div>
+                                                    </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <div class="min-w-0 flex-1 flex items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <img class="h-12 w-12 rounded group-hover:opacity-75" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+                                                            </div>
+                                                            <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-1">
+                                                            <div>
+                                                                <p class="text-sm font-medium text-purple-600 truncate">Emily Selman</p>
+                                                                <p class="mt-2 flex items-center text-sm text-gray-500">
+                                                                    <svg class="flex-shrink-0 -mt-0.5 mr-2 h-6 w-6 text-blue-gray-200" x-description="Heroicon name: outline/cash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                                                    </svg>
+                                                                <span class="truncate">40 credits</span>
+                                                                </p>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">23/02/2022</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-indigo-500">Admin</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                        <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Accept</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="flex-shrink-0 h-10 w-10">
+                                                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                                        </div>
+                                                        <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                        <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                                        </div>
+                                                    </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <div class="min-w-0 flex-1 flex items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <img class="h-12 w-12 rounded group-hover:opacity-75" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+                                                            </div>
+                                                            <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-1">
+                                                            <div>
+                                                                <p class="text-sm font-medium text-purple-600 truncate">Emily Selman</p>
+                                                                <p class="mt-2 flex items-center text-sm text-gray-500">
+                                                                    <svg class="flex-shrink-0 -mt-0.5 mr-2 h-6 w-6 text-blue-gray-200" x-description="Heroicon name: outline/cash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                                                    </svg>
+                                                                <span class="truncate">40 credits</span>
+                                                                </p>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">23/02/2022</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-indigo-500">Admin</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                        <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Accept</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="flex-shrink-0 h-10 w-10">
+                                                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                                        </div>
+                                                        <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                        <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                                        </div>
+                                                    </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <div class="min-w-0 flex-1 flex items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <img class="h-12 w-12 rounded group-hover:opacity-75" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+                                                            </div>
+                                                            <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-1">
+                                                            <div>
+                                                                <p class="text-sm font-medium text-purple-600 truncate">Emily Selman</p>
+                                                                <p class="mt-2 flex items-center text-sm text-gray-500">
+                                                                    <svg class="flex-shrink-0 -mt-0.5 mr-2 h-6 w-6 text-blue-gray-200" x-description="Heroicon name: outline/cash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                                                    </svg>
+                                                                <span class="truncate">40 credits</span>
+                                                                </p>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">23/02/2022</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-indigo-500">Admin</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                        <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Accept</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="flex-shrink-0 h-10 w-10">
+                                                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                                        </div>
+                                                        <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                        <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                                        </div>
+                                                    </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <div class="min-w-0 flex-1 flex items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <img class="h-12 w-12 rounded group-hover:opacity-75" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+                                                            </div>
+                                                            <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-1">
+                                                            <div>
+                                                                <p class="text-sm font-medium text-purple-600 truncate">Emily Selman</p>
+                                                                <p class="mt-2 flex items-center text-sm text-gray-500">
+                                                                    <svg class="flex-shrink-0 -mt-0.5 mr-2 h-6 w-6 text-blue-gray-200" x-description="Heroicon name: outline/cash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                                                    </svg>
+                                                                <span class="truncate">40 credits</span>
+                                                                </p>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">23/02/2022</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-indigo-500">Admin</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                        <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Accept</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="flex-shrink-0 h-10 w-10">
+                                                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                                        </div>
+                                                        <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                        <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                                        </div>
+                                                    </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <div class="min-w-0 flex-1 flex items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <img class="h-12 w-12 rounded group-hover:opacity-75" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+                                                            </div>
+                                                            <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-1">
+                                                            <div>
+                                                                <p class="text-sm font-medium text-purple-600 truncate">Emily Selman</p>
+                                                                <p class="mt-2 flex items-center text-sm text-gray-500">
+                                                                    <svg class="flex-shrink-0 -mt-0.5 mr-2 h-6 w-6 text-blue-gray-200" x-description="Heroicon name: outline/cash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                                                    </svg>
+                                                                <span class="truncate">40 credits</span>
+                                                                </p>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">23/02/2022</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-indigo-500">Admin</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                        <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Accept</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="flex-shrink-0 h-10 w-10">
+                                                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                                        </div>
+                                                        <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
+                                                        <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                                                        </div>
+                                                    </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <div class="min-w-0 flex-1 flex items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <img class="h-12 w-12 rounded group-hover:opacity-75" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+                                                            </div>
+                                                            <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-1">
+                                                            <div>
+                                                                <p class="text-sm font-medium text-purple-600 truncate">Emily Selman</p>
+                                                                <p class="mt-2 flex items-center text-sm text-gray-500">
+                                                                    <svg class="flex-shrink-0 -mt-0.5 mr-2 h-6 w-6 text-blue-gray-200" x-description="Heroicon name: outline/cash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                                                    </svg>
+                                                                <span class="truncate">40 credits</span>
+                                                                </p>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">23/02/2022</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-indigo-500">Admin</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                        <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Accept</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal Container -->
+
+    <div id="addCreadits" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full">
+        <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
+            <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                <svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <div class="mt-3 text-center sm:mt-5">
+                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Payment successful</h3>
+                <div class="mt-2">
+                <p class="text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>Consequatur amet labore.</p>
+                </div>
+            </div>
+            <div class="mt-5 sm:mt-6">
+                <button type="button" data-modal-toggle="addCreadits" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">Go back to dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="noCredits" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full">
+        <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
+            <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100">
+                <svg class="h-6 w-6 text-red-600" x-description="Heroicon name: outline/exclamation" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                </svg>
+            </div>
+            <div class="mt-3 text-center sm:mt-5">
+                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Not enough credits</h3>
+                <div class="mt-2">
+                    <p class="text-sm text-gray-500">You do not have enough credits to enroll all your learners. <br>Please purchase credits to add new learners to new sessions</p>
+                </div>
+            </div>
+            <div class="mt-5 sm:mt-6">
+                <button type="button" data-modal-toggle="noCredits" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">Ok</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="buyCreadits" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full">
+        <div class="relative px-4 w-full max-w-2xl h-full md:h-auto">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="w-full">
+                    <div class="flex justify-between items-start p-5 rounded-t">
+                        <div class="w-full">
+                            <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
+                                Buy Credits
+                            </h3>
+                            <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                                Check the credits reference before entering an amount.
+                            </p>
+                        </div>
+                        <button data-modal-toggle="buyCreadits" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Modal body -->
+                <div class="px-6">
+                    <dl class="grid grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-2 p-4 bg-gray-100">
+                        <div class="flex justify-self-stretch grid grid-cols-2 gap-2">
+                            <div class="text-sm font-medium text-gray-500">
+                                From 0 to 20
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <svg class="flex-shrink-0 -mt-0.5 mr-2 h-6 w-6 text-blue-gray-400" x-description="Heroicon name: outline/cash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                                $150 per credit
+                            </div>
+                        </div>
+                        <div class="flex justify-self-stretch grid grid-cols-2 gap-2">
+                            <div class="text-sm font-medium text-gray-500">
+                                From 20 to 50
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <svg class="flex-shrink-0 -mt-0.5 mr-2 h-6 w-6 text-blue-gray-400" x-description="Heroicon name: outline/cash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                                $100 per credit
+                            </div>
+                        </div>
+                        <div class="flex justify-self-stretch grid grid-cols-2 gap-2">
+                            <div class="text-sm font-medium text-gray-500">
+                                Above 50
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <svg class="flex-shrink-0 -mt-0.5 mr-2 h-6 w-6 text-blue-gray-400" x-description="Heroicon name: outline/cash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                                $50 per credit
+                            </div>
+                        </div>
+                    </dl>
+                    <div class="mt-4 w-full">
+                        <p>Enter the credit amount here</p>
+                        <div class="relative text-gray-500 focus-within:text-gray-400">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="flex-shrink-0 -mt-0.5 mr-2 h-6 w-6 text-blue-gray-400" x-description="Heroicon name: outline/cash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            </div>
+                            <input id="search" name="search" class="block w-full pl-10 pr-3 py-2 border border-gray-400 rounded-md leading-5 text-gray-600 placeholder-gray-500 focus:outline-none focus:bg-white focus:ring-0 focus:placeholder-gray-400 focus:text-gray-900 sm:text-sm" placeholder="$ 0.00" type="input">
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex flex-row-reverse items-center p-6 space-x-2 rounded-b">
+                    <button data-modal-toggle="buyCreadits" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:ml-3">Buy</button>
+                    <button data-modal-toggle="buyCreadits" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 sm:ml-3">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmation" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full">
+        <div class="relative px-4 w-full max-w-2xl h-full md:h-auto">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="w-full">
+                    <div class="flex justify-between items-start p-5 rounded-t">
+                        <div class="w-full">
+                            <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
+                                Are you sure ?
+                            </h3>
+                            <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                                You’re about to spend the following credits :
+                            </p>
+                        </div>
+                        <button data-modal-toggle="confirmation" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Modal body -->
+                <div class="px-6">
+                    <dl class="grid grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-2 p-4 bg-gray-100">
+                        <div class="flex justify-self-stretch grid grid-cols-1 gap-2">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <svg class="flex-shrink-0 -mt-0.5 mr-2 h-6 w-6 text-blue-gray-400" x-description="Heroicon name: outline/cash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                                $150 per credit
+                            </div>
+                        </div>
+                    </dl>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex flex-row-reverse items-center p-6 space-x-2 rounded-b">
+                    <button data-modal-toggle="confirmation" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:ml-3">Confirm</button>
+                    <button data-modal-toggle="confirmation" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 sm:ml-3">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="csvList" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full">
+        <div class="relative px-4 w-full max-w-7xl h-full md:h-auto">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="w-full">
+                    <div class="flex justify-between items-start p-5 rounded-t">
+                        <div class="w-full">
+                            <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
+                                Upload .csv list
+                            </h3>
+                            <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400 mt-1">
+                                Upload your csv list of collaborators here. The file must follow the following format :
+                            </p>
+                        </div>
+                        <button data-modal-toggle="csvList" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Modal body -->
+                <div class="px-6">
+                    <div class="w-full">
+                        <p class="text-base leading-relaxed text-indigo-500 dark:text-gray-400 mb-2">
+                            Download the example file here.
+                        </p>
+                        <div class="flex flex-col">
+                            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+                                        <th scope="col" class="relative px-6 py-3">
+                                        <span class="sr-only">Edit</span>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <!-- Odd row -->
+                                    <tr class="bg-white">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Jane Cooper</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Regional Paradigm Technician</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">jane.cooper@example.com</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Admin</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Even row -->
+                                    <tr class="bg-gray-50">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Cody Fisher</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Product Directives Officer</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">cody.fisher@example.com</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Owner</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        </td>
+                                    </tr>
+
+                                    <!-- More people... -->
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            <div class="space-y-1 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                <div class="flex text-sm text-gray-600">
+                                <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                    <span>Upload your csv file</span>
+                                    <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                </label>
+                                <p class="pl-1">or drag and drop</p>
+                                </div>
+                                <p class="text-xs text-gray-500">
+                                PNG, JPG, GIF up to 10MB
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex flex-row-reverse items-center p-6 space-x-2 rounded-b">
+                    <button data-modal-toggle="csvList" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:ml-3">Save</button>
+                    <button data-modal-toggle="csvList" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 sm:ml-3">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="addEmployee" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full">
+        <div class="relative px-4 w-full max-w-2xl h-full md:h-auto">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="w-full">
+                    <div class="flex justify-between items-start p-5 rounded-t">
+                        <div class="w-full">
+                            <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
+                                Add Collaborator
+                            </h3>
+                            <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                                Please enter the details to create a collaborator profile.
+                            </p>
+                        </div>
+                        <button data-modal-toggle="addEmployee" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Modal body -->
+                <div class="px-6">
+                    <form class="space-y-6" action="#" method="POST">
+                        <div>
+                            <label for="fname" class="block text-sm font-medium text-gray-700"> First name </label>
+                            <div class="mt-1">
+                                <input placeholder="Rebecca" id="fname" name="fname" type="fname" autocomplete="fname" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="lname" class="block text-sm font-medium text-gray-700"> Last name </label>
+                            <div class="mt-1">
+                                <input placeholder="Nicholas" id="lname" name="lname" type="lname" autocomplete="lname" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700"> Email </label>
+                            <div class="mt-1">
+                                <input placeholder="you@example.com" id="email" name="email" type="email" autocomplete="email" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700"> Phone Number </label>
+                            <div class="mt-1">
+                                <input placeholder="+1 (555) 987-6543" id="phone" name="phone" type="phone" autocomplete="current-phone" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="about" class="block text-sm font-medium text-gray-700">About</label>
+                            <div class="mt-1">
+                                <textarea id="about" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
+                            </div>
+                            <p class="mt-2 text-sm text-gray-500">Write a few sentences about yourself.</p>
+                        </div>
+
+                        <div>
+                            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                                <div class="space-y-1 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                    <span>Upload a file</span>
+                                    <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                    </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>
+                                <p class="text-xs text-gray-500">
+                                    PNG, JPG, GIF up to 10MB
+                                </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="tags" class="block text-sm font-medium text-gray-700"> Tags </label>
+                            <div class="mt-1">
+                                <input placeholder="example1, example2, example 3" id="tags" name="tags" type="tags" autocomplete="tags" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex flex-row-reverse items-center p-6 space-x-2 rounded-b">
+                    <button data-modal-toggle="addEmployee" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:ml-3" disabled>Confirm</button>
+                    <button data-modal-toggle="addEmployee" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 sm:ml-3">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
